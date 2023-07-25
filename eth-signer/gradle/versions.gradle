@@ -1,0 +1,125 @@
+/*
+ * Copyright 2018 ConsenSys AG.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+dependencyManagement {
+  dependencies {
+    dependencySet(group: 'com.google.errorprone', version: '2.11.0') {
+      entry 'error_prone_annotation'
+      entry 'error_prone_check_api'
+      entry 'error_prone_core'
+      entry 'error_prone_test_helpers'
+    }
+
+    dependency 'com.google.guava:guava:31.1-jre'
+
+    dependency 'com.squareup.okhttp3:okhttp:4.9.3'
+
+    dependency 'commons-io:commons-io:2.11.0'
+
+    dependency 'info.picocli:picocli:4.6.3'
+
+    dependency 'io.rest-assured:rest-assured:4.4.0'
+
+    dependencySet(group: 'io.vertx', version: '4.2.7') {
+       entry 'vertx-codegen'
+       entry 'vertx-core'
+       entry 'vertx-unit'
+       entry 'vertx-web-client'
+       entry 'vertx-web'
+    }
+
+    dependency 'javax.activation:activation:1.1.1'
+
+    dependencySet(group: 'org.apache.logging.log4j', version: '2.17.2') {
+      entry 'log4j-api'
+      entry 'log4j-core'
+      entry 'log4j-slf4j-impl'
+    }
+
+    dependencySet(group: 'org.apache.tuweni', version: '2.2.0') {
+      entry 'tuweni-net'
+      entry 'tuweni-toml'
+    }
+
+    dependency 'org.assertj:assertj-core:3.22.0'
+
+    dependency 'org.awaitility:awaitility:4.1.1'
+
+    dependencySet(group: 'org.bouncycastle', version: '1.70') {
+      entry 'bcpkix-jdk15on'
+      entry 'bcprov-jdk15on'
+    }
+
+    dependencySet(group: 'org.junit.jupiter', version: '5.8.2') {
+      entry 'junit-jupiter-api'
+      entry 'junit-jupiter-engine'
+      entry 'junit-jupiter-params'
+    }
+
+    dependency 'org.mock-server:mockserver-netty:5.11.2'
+
+    dependencySet(group: 'org.mockito', version: '4.2.0') {
+      entry 'mockito-core'
+      entry 'mockito-inline'
+      entry 'mockito-junit-jupiter'
+    }
+
+    dependencySet(group: 'org.web3j', version: '4.9.1') {
+      entry 'besu'
+      entry ('core') {
+        exclude group: 'com.github.jnr', name: 'jnr-unixsocket'
+      }
+      entry 'crypto'
+    }
+
+    dependencySet(group: 'tech.pegasys.signers.internal', version: '2.2.2') {
+      entry 'keystorage-hashicorp'
+      entry 'signing-secp256k1-api'
+      entry 'signing-secp256k1-impl'
+    }
+
+    dependency 'org.zeroturnaround:zt-exec:1.12'
+
+    dependency "org.hyperledger.besu:plugin-api:${besuVersion}"
+    dependency "org.hyperledger.besu.internal:metrics-core:${besuVersion}"
+
+    // explicit declaring to override transitive dependencies with vulnerabilities
+    dependency 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
+    dependencySet(group: 'com.google.protobuf', version: '3.19.4') {
+      entry 'protobuf-java'
+      entry 'protobuf-java-util'
+    }
+    dependencySet(group: 'io.grpc', version: '1.45.1') {
+      entry 'grpc-api'
+      entry 'grpc-context'
+      entry 'grpc-core'
+      entry 'grpc-netty'
+      entry 'grpc-protobuf'
+      entry 'grpc-protobuf-lite'
+      entry 'grpc-stub'
+    }
+    dependencySet(group: 'org.jetbrains.kotlin', version: '1.6.10') {
+      entry 'kotlin-stdlib'
+      entry 'kotlin-stdlib-common'
+      entry 'kotlin-stdlib-jdk7'
+      entry 'kotlin-stdlib-jdk8'
+    }
+    // addressing CVE-2022-24823
+    dependencySet(group: 'io.netty', version: '4.1.77.Final') {
+      entry 'netty-all'
+      entry 'netty-codec-http2'
+      entry 'netty-handler-proxy'
+      entry 'netty-resolver-dns'
+    }
+  }
+}
